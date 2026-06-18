@@ -1,59 +1,132 @@
-# Chatbot Espaço Aquático
+# 🏊 Chatbot Espaço Aquático
 
-Chatbot desenvolvido para a academia Espaço Aquático, com foco em atendimento inicial para alunos e interessados em aulas de hidroginástica, natação, hidroterapia e demais serviços oferecidos pela academia.
+Projeto desenvolvido para a academia **Espaço Aquático**, com o objetivo de automatizar o atendimento inicial dos alunos e interessados em atividades aquáticas.
 
-O objetivo do projeto é facilitar o contato com clientes, responder dúvidas frequentes e auxiliar no direcionamento para matrícula, horários, valores e informações gerais.
+O chatbot é capaz de responder dúvidas frequentes sobre modalidades, horários, localização, contato e informações gerais da academia, proporcionando um atendimento rápido e eficiente.
 
-==================================================
-FUNCIONALIDADES
-==================================================
+---
 
-- Atendimento automático inicial
-- Respostas sobre hidroginástica, natação e serviços da academia
-- Informações de contato e endereço
-- Explicação sobre horários e funcionamento
-- Suporte para dúvidas frequentes dos clientes
-- Interface simples e intuitiva
+## 📋 Requisitos
 
-==================================================
-TECNOLOGIAS UTILIZADAS
-==================================================
+- Linguagem de Programação: Python
+- Framework Web: Flask
+- Interface Web: HTML, CSS e JavaScript
+- Processamento de Linguagem Natural: NLTK
+- Base de Conhecimento: Estrutura local contendo perguntas e respostas da academia
+- Navegador Web para acesso à interface
 
-- Python
-- Flask
-- HTML
-- CSS
-- JavaScript
+---
 
-==================================================
-INSTALAÇÃO DAS DEPENDÊNCIAS
-==================================================
+## ⚙️ Funcionalidades
 
-Execute o comando abaixo no terminal:
+O chatbot pode responder perguntas relacionadas a:
 
+- 🏊 Hidroginástica
+- 🏊‍♂️ Natação Infantil
+- 🏊‍♂️ Natação Adulta
+- 💆 Hidroterapia
+- 📍 Endereço da academia
+- 📞 Telefones para contato
+- 🕒 Horários de funcionamento
+- 📝 Informações para matrícula
+- ❓ Dúvidas frequentes dos alunos
+
+---
+
+## 🔄 Fluxo do Chatbot
+
+O sistema segue o seguinte fluxo:
+
+1. O usuário envia uma pergunta pela interface web.
+2. A mensagem é processada pelo sistema.
+3. O chatbot procura uma resposta na base de conhecimento.
+4. Caso encontre uma correspondência, retorna a resposta adequada.
+5. Caso não encontre, retorna uma mensagem orientando o usuário a entrar em contato com a academia.
+
+---
+
+## 🏢 Informações da Academia
+
+**Espaço Aquático**
+
+📍 Endereço:
+
+Rua São Mateus, 531  
+São Mateus - Juiz de Fora/MG  
+CEP: 36025-000
+
+📞 Telefone:
+
+(32) 3303-0388
+
+---
+
+## 🧠 Decisões de Desenvolvimento
+
+### 1. Framework
+
+Foi utilizado o Flask por ser um framework leve, simples e amplamente utilizado para aplicações web em Python.
+
+### 2. Base de Conhecimento
+
+As respostas são armazenadas localmente, permitindo rápida consulta e fácil manutenção das informações da academia.
+
+### 3. Interface
+
+A interface foi desenvolvida utilizando HTML, CSS e JavaScript, oferecendo uma experiência simples e intuitiva para os usuários.
+
+### 4. Escalabilidade
+
+A estrutura do projeto permite futuras integrações com:
+
+- WhatsApp
+- Telegram
+- Inteligência Artificial
+- Banco de Dados
+- Sistemas de Matrícula
+
+---
+
+## 🚀 Como Rodar o Projeto
+
+### 1. Tenha o Python instalado
+
+Verifique a instalação:
+
+```bash
+python --version
+```
+
+### 2. Instale as dependências
+
+```bash
 pip install -r requirements.txt
+```
 
-==================================================
-EXECUTAR O PROJETO
-==================================================
+### 3. Execute o servidor Flask
 
-Após instalar as dependências, execute:
-
+```bash
 python app.py
+```
 
-Depois, acesse no navegador:
+### 4. Abra o navegador
 
-http://127.0.0.1:5000/
+Acesse:
 
-==================================================
-ESTRUTURA DO PROJETO
-==================================================
+```bash
+http://localhost:5000
+```
 
+---
+
+## 📁 Estrutura do Projeto
+
+```text
 chatbot-espaco-aquatico/
 │
 ├── app.py
 ├── requirements.txt
-├── README.txt
+├── README.md
 │
 ├── templates/
 │   └── index.html
@@ -61,86 +134,23 @@ chatbot-espaco-aquatico/
 └── static/
     ├── style.css
     └── script.js
+```
 
-==================================================
-SOBRE A ACADEMIA
-==================================================
+---
 
-Nome: Espaço Aquático
+## 🔮 Melhorias Futuras
 
-Endereço:
-Rua São Mateus, 531
-São Mateus
-Juiz de Fora - MG
-CEP: 36025-000
+- Integração com WhatsApp
+- Integração com Instagram
+- Cadastro de alunos
+- Agendamento de aulas
+- Histórico de conversas
+- Uso de IA para respostas mais naturais
 
-Telefone:
-(32) 3303-0388
+---
 
-Serviços oferecidos:
+## 👨‍💻 Desenvolvido por
 
-- Hidroginástica
-- Natação Infantil
-- Natação Adulta
-- Hidroterapia
-- Fisioterapia Aquática
-- Atendimento ao Aluno
+- Gustavo Pestana
 
-==================================================
-OBJETIVO DO CHATBOT
-==================================================
-
-O chatbot foi desenvolvido para melhorar a experiência dos alunos e futuros clientes da academia, oferecendo respostas rápidas e precisas sobre:
-
-- Modalidades disponíveis
-- Horários de funcionamento
-- Informações de matrícula
-- Contato da academia
-- Localização
-- Dúvidas frequentes
-
-Com isso, reduz-se o tempo de espera para atendimento e melhora-se a comunicação com os clientes.
-
-==================================================
-EXEMPLOS DE PERGUNTAS
-==================================================
-
-Usuário:
-"Quais modalidades vocês oferecem?"
-
-Usuário:
-"Qual o endereço da academia?"
-
-Usuário:
-"Como faço minha matrícula?"
-
-Usuário:
-"Vocês possuem hidroginástica?"
-
-Usuário:
-"Qual o telefone para contato?"
-
-==================================================
-COMANDOS RÁPIDOS
-==================================================
-
-Instalar dependências:
-
-pip install -r requirements.txt
-
-Iniciar servidor:
-
-python app.py
-
-==================================================
-AUTOR
-==================================================
-
-Desenvolvido por:
-
-Gustavo Pestana
-
-Curso:
-Sistemas de Informação
-
-Projeto desenvolvido para a academia Espaço Aquático.
+Projeto acadêmico desenvolvido para a academia **Espaço Aquático**.
