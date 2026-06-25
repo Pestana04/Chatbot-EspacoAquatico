@@ -2,10 +2,12 @@ import os
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 
+# Carrega as variáveis do arquivo .env antes de importar os outros arquivos
+load_dotenv()
+
 from llm import gerar_resposta
 from whatsapp import enviar_mensagem_whatsapp, avisar_atendente
 
-load_dotenv()
 
 app = Flask(__name__)
 
@@ -20,12 +22,45 @@ def home():
 @app.route("/chat", methods=["POST"])
 def chat_web():
     dados = request.get_json()
+
+    if not dados:
+        return jsonify({
+            "erro": "Nenhum dado JSON foi enviado."
+        }), 400
+
     mensagem = dados.get("mensagem", "")
+
+    if not mensagem.strip():
+        return jsonify({
+            "erro": "A mensagem não pode estar vazia."
+        }), 400
 
     resposta = gerar_resposta(mensagem)
 
+    resposta_limpa = resposta.replace("[AVISAR_ATENDENTE]", "").strip()
+
     return jsonify({
-        "resposta": resposta.replace("[AVISAR_ATENDENTE]", "").strip()
+        "resposta": resposta_limpa
+    })
+
+
+@app.route("/teste", methods=["GET"])
+def teste_chat():
+    mensagem = request.args.get("mensagem", "")
+
+    if not mensagem.strip():
+        return jsonify({
+            "erro": "Envie uma mensagem pela URL.",
+            "exemplo": "http://localhost:5000/teste?mensagem=Quais modalidades vocês oferecem?"
+        }), 400
+
+    resposta = gerar_resposta(mensagem)
+
+    resposta_limpa = resposta.replace("[AVISAR_ATENDENTE]", "").strip()
+
+    return jsonify({
+        "mensagem": mensagem,
+        "resposta": resposta_limpa
     })
 
 
@@ -59,7 +94,7 @@ def receber_mensagem_whatsapp():
         enviar_mensagem_whatsapp(numero_cliente, resposta)
 
     except Exception as erro:
-        print("Erro ao processar mensagem:", erro)
+        print("Erro ao processar mensagem do WhatsApp:", erro)
 
     return "OK", 200
 

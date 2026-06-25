@@ -1,0 +1,23 @@
+# Variáveis de ambiente / chaves secretas
+.env
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ambiente virtual
+venv/
+.venv/
+env/
+
+# Arquivos do PyCharm/IntelliJ
+.idea/
+
+# Logs
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
